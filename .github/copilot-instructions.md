@@ -100,6 +100,7 @@ npm run lint    # ESLint check
 ## Codebase Analysis Guidelines
 
 ### Key Files to Analyze for Understanding
+- `README.md` - Project overview, setup instructions, and development guidelines
 - `_app.js` - Global app configuration and theme setup
 - `components/Layout.js` - Navigation structure and app branding
 - `pages/employees.js` - Complete CRUD implementation example
