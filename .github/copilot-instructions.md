@@ -37,6 +37,8 @@ npm run lint    # ESLint check
 - **Node.js**: Required for Next.js development
 - **Backend API**: Must run external API on `localhost:5042` for full functionality
 - **Git**: `.gitignore` configured for Next.js with PrimeReact-specific exclusions
+- **Docker**: Multi-stage builds available (`Dockerfile`, `Dockerfile.prod`)
+- **CI/CD**: GitHub Actions pipeline for testing, building, and deployment
 
 ### Key File Relationships
 - `_app.js` → `Layout.js` → All pages get consistent navigation
@@ -81,6 +83,11 @@ npm run lint    # ESLint check
 - Uses Next.js router for programmatic navigation
 
 ## Common Development Tasks
+
+### Docker Operations
+- **Development**: `docker-compose up` for full stack with API
+- **Production build**: `docker build -f Dockerfile.prod -t staff-portal .`
+- **Local testing**: `docker run -p 3000:3000 staff-portal`
 
 ### Adding New Pages
 1. Create in `/pages/` directory

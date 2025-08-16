@@ -53,6 +53,43 @@ A modern employee management system built with Next.js and PrimeReact, providing
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 
+### Docker Support
+
+The project includes Docker configuration for both development and production:
+
+#### Development with Docker Compose
+```bash
+# Start both frontend and backend services
+docker-compose up
+
+# Build and start in detached mode
+docker-compose up -d --build
+```
+
+#### Production Docker Build
+```bash
+# Build production image
+docker build -f Dockerfile.prod -t staff-portal .
+
+# Run production container
+docker run -p 3000:3000 staff-portal
+```
+
+### CI/CD Pipeline
+
+The project includes a GitHub Actions workflow (`.github/workflows/ci-cd.yml`) that:
+
+1. **Tests**: Runs on Node.js 18.x and 20.x
+2. **Linting**: ESLint validation
+3. **Build**: Verifies successful build
+4. **Docker**: Builds and pushes to Docker Hub (on main branch)
+5. **Deploy**: Placeholder for production deployment
+
+#### Required Secrets
+Set these in your GitHub repository settings:
+- `DOCKER_USERNAME` - Docker Hub username
+- `DOCKER_PASSWORD` - Docker Hub password/token
+
 ## Project Structure
 
 ```

@@ -1,0 +1,33 @@
+# Docker Compose for development
+version: '3.8'
+
+services:
+  staff-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - staff-api
+    networks:
+      - staff-network
+
+  # Mock API service (replace with your actual backend)
+  staff-api:
+    image: mockapi/mockapi:latest # Replace with your actual API image
+    ports:
+      - "5042:5042"
+    environment:
+      - PORT=5042
+    networks:
+      - staff-network
+
+networks:
+  staff-network:
+    driver: bridge
+
+volumes:
+  api-data:
